@@ -6,7 +6,7 @@
 
 REST-api for KS-SvarUt.
 
-Look at this [WIKI](https://github.com/telemark/node-svarut/wiki) for field descriptions.
+Look at this [WIKI](https://github.com/telemark/svarut/wiki) for field descriptions.
 
 # API
 
