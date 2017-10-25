@@ -3,7 +3,13 @@ const readFileAsync = promisify(require('fs').readFile)
 const md = require('markdown-it')()
 const svarUt = require('node-svarut')
 const { send, json } = require('micro')
+const { parse } = require('url')
 const config = { config: { url: process.env.SVARUT_URL } }
+
+async function getMethod (req) {
+  const { pathname } = await parse(req.url, true)
+  return pathname.split('/')[1]
+}
 
 exports.front = async (req, res) => {
   const readme = await readFileAsync('./README.md', 'utf-8')
@@ -11,75 +17,28 @@ exports.front = async (req, res) => {
   send(res, 200, html)
 }
 
-exports.sendForsendelse = async (req, res) => {
+exports.post = async (req, res) => {
+  const method = await getMethod(req)
   const data = { query: await json(req) }
   const options = Object.assign(data, config)
 
   try {
-    const svarutData = await svarUt.sendForsendelse(options)
+    const svarutData = await svarUt[method](options)
     send(res, 200, svarutData)
   } catch (error) {
-    send(res, 500, error.message)
+    console.error(error)
+    send(res, error.statusCode || 500, error.message)
   }
 }
 
-exports.retrieveForsendelseHistorikk = async (req, res) => {
+exports.get = async (req, res) => {
+  const method = await getMethod(req)
+  console.log(method)
   const { id } = req.params
   const options = Object.assign({ query: { forsendelsesid: id } }, config)
 
   try {
-    const svarutData = await svarUt.retrieveForsendelseHistorikk(options)
-    send(res, 200, svarutData)
-  } catch (error) {
-    console.log(error)
-    send(res, 500, error.message || error)
-  }
-}
-
-exports.retrieveForsendelseIdByEksternRef = async (req, res) => {
-  const { id } = req.params
-  const options = Object.assign({ query: { forsendelsesid: id } }, config)
-
-  try {
-    const svarutData = await svarUt.retrieveForsendelseIdByEksternRef(options)
-    send(res, 200, svarutData)
-  } catch (error) {
-    send(res, 500, error.message || error)
-  }
-}
-
-exports.retrieveForsendelseStatus = async (req, res) => {
-  const { id } = req.params
-  console.log(id)
-  const options = Object.assign({ query: { forsendelsesid: id } }, config)
-
-  try {
-    const svarutData = await svarUt.retrieveForsendelseStatus(options)
-    send(res, 200, svarutData)
-  } catch (error) {
-    send(res, 500, error.message || error)
-  }
-}
-
-exports.setForsendelseLestAvEksterntSystem = async (req, res) => {
-  const data = { query: await json(req) }
-  const options = Object.assign(data, config)
-
-  try {
-    const svarutData = await svarUt.setForsendelseLestAvEksterntSystem(options)
-    send(res, 200, svarutData)
-  } catch (error) {
-    send(res, 500, error.message || error)
-  }
-}
-
-exports.retrieveForsendelseStatuser = async (req, res) => {
-  const payload = await json(req)
-  console.log(payload)
-  try {
-    const data = { query: payload }
-    const options = Object.assign(data, config)
-    const svarutData = await svarUt.retrieveForsendelseStatuser(options)
+    const svarutData = await svarUt[method](options)
     send(res, 200, svarutData)
   } catch (error) {
     console.log(error)

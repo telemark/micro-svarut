@@ -7,9 +7,6 @@
   "env": {
     "NODE_ENV": "production",
     "JWT_SECRET": "@micro-svarut-jwt",
-    "SVARUT_URL": "@micro-svarut-url",
-    "PAPERTRAIL_HOSTNAME": "micro-svarut",
-    "PAPERTRAIL_HOST": "@tfk-papertrail-host",
-    "PAPERTRAIL_PORT": "@tfk-papertrail-port"
+    "SVARUT_URL": "@micro-svarut-url"
   }
 }
