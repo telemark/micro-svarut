@@ -58,18 +58,6 @@ data.json
 
 `curl -i -H "Authorization: TOKEN" --data @data.json  http://localhost:3000/sendForsendelse` 
 
-data.json
-```json
-{
-  "forsendelseider": [
-    "718e95b5-49dd-463b-8a5d-35aee3ee9850",
-    "63313040-7b07-442f-a891-df0b2edf41d9"
-  ]
-}
-```
-
-`curl -i -H "Authorization: TOKEN" --data @data.json  http://localhost:3000/retrieveForsendelseStatuser` 
-
 ### retrieveForsendelseStatuser
 
 data.json
