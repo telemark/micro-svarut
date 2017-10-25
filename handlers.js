@@ -1,7 +1,7 @@
 const { promisify } = require('util')
 const readFileAsync = promisify(require('fs').readFile)
 const md = require('markdown-it')()
-const svarUt = require('node-svarut')
+const svarUt = require('svarut')
 const { send, json } = require('micro')
 const { parse } = require('url')
 const config = { config: { url: process.env.SVARUT_URL } }
