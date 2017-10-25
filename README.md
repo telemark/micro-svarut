@@ -10,14 +10,15 @@ Look at this [WIKI](https://github.com/telemark/node-svarut/wiki) for field desc
 
 # API
 
-| Method | Path |
-| --- | --- |
-| POST | /sendForsendelse |
-| GET | /retrieveForsendelseStatus |
-| POST | /retrieveForsendelseStatuser |
-| GET | /retrieveForsendelseHistorikk |
-| GET | /retrieveForsendelseIdByEksternRef |
-| POST | /setForsendelseLestAvEksterntSystem |
+| Method | Path | Description |
+| --- | --- | --- |
+| GET | / | This readme |
+| POST | /sendForsendelse | Sender inn forsendelse til ekspedering av KS-SvarUt |
+| GET | /retrieveForsendelseStatus | Henter status for en forsendelse |
+| POST | /retrieveForsendelseStatuser | Henter status for flere forsendelseer |
+| GET | /retrieveForsendelseHistorikk | Henter historikk for en forsendelse |
+| POST | /retrieveForsendelseIdByEksternRef | Henter liste med forsendelseider |
+| POST | /setForsendelseLestAvEksterntSystem | Sette status til lest når dokumentet har blitt lest |
 
 # Examples
 
@@ -82,7 +83,16 @@ Example: `curl -i -H "Authorization: TOKEN" http://localhost:3000/retrieveForsen
 
 ### retrieveForsendelseIdByEksternRef
 
-Example: `curl -i -H "Authorization: TOKEN" http://localhost:3000/retrieveForsendelseHistorikk/718e95b5-49dd-463b-8a5d-35aee3ee9850`
+data.json
+```json
+{
+  "eksternref": [
+    "718e95b5-49dd-463b-8a5d-35aee3ee9850"
+  ]
+}
+```
+
+Example: `curl -i -H "Authorization: TOKEN" --data @data.json http://localhost:3000/retrieveForsendelseIdByEksternRef`
 
 ### setForsendelseLestAvEksterntSystem
 
