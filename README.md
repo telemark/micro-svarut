@@ -57,7 +57,7 @@ data.json
 }
 ```
 
-`curl -i -H "Authorization: TOKEN" --data @data.json  http://localhost:3000/sendForsendelse` 
+`curl -H "Authorization: TOKEN" --data @data.json  http://localhost:3000/sendForsendelse` 
 
 ### retrieveForsendelseStatuser
 
@@ -71,15 +71,15 @@ data.json
 }
 ```
 
-`curl -i -H "Authorization: TOKEN" --data @data.json  http://localhost:3000/retrieveForsendelseStatuser` 
+`curl -H "Authorization: TOKEN" --data @data.json  http://localhost:3000/retrieveForsendelseStatuser` 
 
 ### retrieveForsendelseStatus
 
-`curl -i -H "Authorization: TOKEN" http://localhost:3000/retrieveForsendelseStatus/718e95b5-49dd-463b-8a5d-35aee3ee9850`
+`curl -H "Authorization: TOKEN" http://localhost:3000/retrieveForsendelseStatus/718e95b5-49dd-463b-8a5d-35aee3ee9850`
 
 ### retrieveForsendelseHistorikk
 
-Example: `curl -i -H "Authorization: TOKEN" http://localhost:3000/retrieveForsendelseHistorikk/718e95b5-49dd-463b-8a5d-35aee3ee9850`
+`curl -H "Authorization: TOKEN" http://localhost:3000/retrieveForsendelseHistorikk/718e95b5-49dd-463b-8a5d-35aee3ee9850`
 
 ### retrieveForsendelseIdByEksternRef
 
@@ -92,7 +92,7 @@ data.json
 }
 ```
 
-Example: `curl -i -H "Authorization: TOKEN" --data @data.json http://localhost:3000/retrieveForsendelseIdByEksternRef`
+`curl -H "Authorization: TOKEN" --data @data.json http://localhost:3000/retrieveForsendelseIdByEksternRef`
 
 ### setForsendelseLestAvEksterntSystem
 
@@ -106,7 +106,7 @@ data.json
  }
 ```
 
-Example: `curl -i -H "Authorization: TOKEN" --data @data.json http://localhost:3000/setForsendelseLestAvEksterntSystem`
+`curl -H "Authorization: TOKEN" --data @data.json http://localhost:3000/setForsendelseLestAvEksterntSystem`
 
 # Installation alternatives
 
@@ -125,9 +125,8 @@ now --npm -e NODE_ENV=production -e JWT_SECRET=@jwt-secret -e SVARUT_URL=@svarut
 Set envs
 
 ```sh
-SVARUT_URL=https://username:password@test.svarut.ks.no/tjenester/forsendelseservice/ForsendelsesServiceV7
-JWT_SECRET="Louie Louie, oh no, I got to go Louie Louie, oh no, I got to go"
-export SVARUT_URL JWT_SECRET
+export SVARUT_URL=https://username:password@test.svarut.ks.no/tjenester/forsendelseservice/ForsendelsesServiceV7
+export JWT_SECRET="Louie Louie, oh no, I got to go Louie Louie, oh no, I got to go"
 ```
 
 Install
@@ -144,9 +143,8 @@ npm run dev
 Set envs
 
 ```sh
-SVARUT_URL=https://username:password@test.svarut.ks.no/tjenester/forsendelseservice/ForsendelsesServiceV7
-JWT_SECRET="Louie Louie, oh no, I got to go Louie Louie, oh no, I got to go"
-export SVARUT_URL JWT_SECRET
+export SVARUT_URL=https://username:password@test.svarut.ks.no/tjenester/forsendelseservice/ForsendelsesServiceV7
+export JWT_SECRET="Louie Louie, oh no, I got to go Louie Louie, oh no, I got to go"
 ```
 
 Start with
