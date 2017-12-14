@@ -1,8 +1,5 @@
-# Setting the base to nodejs 8
-FROM node:8-alpine
-
-# Maintainer
-MAINTAINER Jonas Enge
+# Setting the base to nodejs 8.9.1
+FROM node:8.9.1-alpine
 
 # Bundle app source
 COPY . /src
