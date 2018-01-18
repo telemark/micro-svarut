@@ -1,5 +1,5 @@
-# Setting the base to nodejs 8.9.1
-FROM node:8.9.1-alpine
+# Setting the base to nodejs 8.9.4
+FROM node:8.9.4-alpine
 
 # Bundle app source
 COPY . /src

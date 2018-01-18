@@ -4,22 +4,18 @@
   "description": "svarut microservice",
   "main": "index.js",
   "private": true,
-  "files": [
-    "index.js",
-    "handlers.js"
-  ],
   "scripts": {
     "test": "standard && nsp check && ava",
     "test-offline": "standard && ava",
     "coverage": "nyc ava",
     "coveralls": "nyc ava && nyc report --reporter=lcov && cat coverage/lcov.info | coveralls",
-    "setup": "npm install",
     "dev": "micro-dev -H localhost",
     "start": "micro",
-    "deploy": "npm test && now --npm && now alias"
+    "deploy": "npm test && now && now alias",
+    "refresh": "rm -rf node_modules && rm package-lock.json && npm install"
   },
   "engines": {
-    "node": ">=8.9.3"
+    "node": ">=8.9.4"
   },
   "keywords": [
     "microservice",
