@@ -38,7 +38,7 @@
   "license": "MIT",
   "dependencies": {
     "cors": "2.8.4",
-    "finalhandler": "1.1.0",
+    "finalhandler": "1.1.1",
     "markdown-it": "8.4.1",
     "micro": "9.1.0",
     "micro-jwt-auth": "1.9.0",
