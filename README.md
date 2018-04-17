@@ -112,7 +112,18 @@ data.json
 
 ### retrieveSigneringshistorikkForFlereForsendelser
 
+data.json
+```json
+{
+  "forsendelseider": [ "2422cb25-bef1-4cd8-962c-3109e799dde7", "bd7d0e68-7934-41f4-8490-dea6c6179477" ]
+}
+```
+
+`curl -H "Authorization: TOKEN" --data @data.json http://localhost:3000/retrieveSigneringshistorikkForFlereForsendelser`
+
 ### retrieveSigneringshistorikk
+
+`curl -H "Authorization: TOKEN" http://localhost:3000/retrieveForsendelseHistorikk/2422cb25-bef1-4cd8-962c-3109e799dde7`
 
 # Installation alternatives
 
