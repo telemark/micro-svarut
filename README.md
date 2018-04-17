@@ -19,6 +19,8 @@ Look at this [WIKI](https://github.com/telemark/svarut/wiki) for field descripti
 | GET | /retrieveForsendelseHistorikk | Henter historikk for en forsendelse |
 | POST | /retrieveForsendelseIdByEksternRef | Henter liste med forsendelseider |
 | POST | /setForsendelseLestAvEksterntSystem | Sette status til lest når dokumentet har blitt lest |
+| POST | /retrieveSigneringshistorikkForFlereForsendelser | Henter historikk for flere signeringsoppdrag |
+| GET | /retrieveSigneringshistorikk | Henter historikk for ett signeringsoppdrag |
 
 # Examples
 
@@ -57,7 +59,7 @@ data.json
 }
 ```
 
-`curl -H "Authorization: TOKEN" --data @data.json  http://localhost:3000/sendForsendelse` 
+`curl -H "Authorization: TOKEN" --data @data.json  http://localhost:3000/sendForsendelse`
 
 ### retrieveForsendelseStatuser
 
@@ -71,7 +73,7 @@ data.json
 }
 ```
 
-`curl -H "Authorization: TOKEN" --data @data.json  http://localhost:3000/retrieveForsendelseStatuser` 
+`curl -H "Authorization: TOKEN" --data @data.json  http://localhost:3000/retrieveForsendelseStatuser`
 
 ### retrieveForsendelseStatus
 
@@ -108,6 +110,10 @@ data.json
 
 `curl -H "Authorization: TOKEN" --data @data.json http://localhost:3000/setForsendelseLestAvEksterntSystem`
 
+### retrieveSigneringshistorikkForFlereForsendelser
+
+### retrieveSigneringshistorikk
+
 # Installation alternatives
 
 ## 1. Run on [Now](https://zeit.co/now)
@@ -115,7 +121,7 @@ data.json
 Deploy to Now
 
 ```sh
-now secret add svarut-url https://username:password@test.svarut.ks.no/tjenester/forsendelseservice/ForsendelsesServiceV7
+now secret add svarut-url https://username:password@test.svarut.ks.no/tjenester/forsendelseservice/ForsendelsesServiceV9
 now secret add jwt-secret "Louie Louie, oh no, I got to go Louie Louie, oh no, I got to go"
 now --npm -e NODE_ENV=production -e JWT_SECRET=@jwt-secret -e SVARUT_URL=@svarut-url telemark/micro-svarut
 ```
@@ -125,7 +131,7 @@ now --npm -e NODE_ENV=production -e JWT_SECRET=@jwt-secret -e SVARUT_URL=@svarut
 Set envs
 
 ```sh
-export SVARUT_URL=https://username:password@test.svarut.ks.no/tjenester/forsendelseservice/ForsendelsesServiceV7
+export SVARUT_URL=https://username:password@test.svarut.ks.no/tjenester/forsendelseservice/ForsendelsesServiceV9
 export JWT_SECRET="Louie Louie, oh no, I got to go Louie Louie, oh no, I got to go"
 ```
 
@@ -143,7 +149,7 @@ npm run dev
 Set envs
 
 ```sh
-export SVARUT_URL=https://username:password@test.svarut.ks.no/tjenester/forsendelseservice/ForsendelsesServiceV7
+export SVARUT_URL=https://username:password@test.svarut.ks.no/tjenester/forsendelseservice/ForsendelsesServiceV9
 export JWT_SECRET="Louie Louie, oh no, I got to go Louie Louie, oh no, I got to go"
 ```
 
