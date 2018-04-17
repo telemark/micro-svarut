@@ -31,7 +31,7 @@ router.get('/retrieveForsendelseStatus/:id', handlers.get)
 router.post('/retrieveForsendelseStatuser', handlers.post)
 router.post('/setForsendelseLestAvEksterntSystem', handlers.post)
 router.post('/retrieveSigneringshistorikkForFlereForsendelser', handlers.post)
-router.get('/retrieveSigneringshistorikk', handlers.get)
+router.get('/retrieveSigneringshistorikk/:id', handlers.get)
 
 module.exports = jwtAuth(JWT_SECRET, [ '/' ])((req, res) =>
   router(req, res, finalhandler(req, res))
