@@ -7,7 +7,7 @@
   "env": {
     "NODE_ENV": "production",
     "JWT_SECRET": "@micro-svarut-jwt",
-    "SVARUT_URL": "@micro-svarut-url"
+    "SVARUT_URL": "@micro-svarut-url-v9"
   },
   "engines": {
     "node": "8.9.4"
