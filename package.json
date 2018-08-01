@@ -43,7 +43,7 @@
     "micro": "9.3.2",
     "micro-jwt-auth": "1.10.0",
     "svarut": "6.0.0",
-    "router": "1.3.2"
+    "router": "1.3.3"
   },
   "devDependencies": {
     "ava": "0.25.0",
