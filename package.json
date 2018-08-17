@@ -40,7 +40,7 @@
     "cors": "2.8.4",
     "finalhandler": "1.1.1",
     "markdown-it": "8.4.2",
-    "micro": "9.3.2",
+    "micro": "9.3.3",
     "micro-jwt-auth": "1.10.0",
     "svarut": "6.0.0",
     "router": "1.3.3"
