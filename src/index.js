@@ -2,7 +2,7 @@
 const Router = require('router')
 const finalhandler = require('finalhandler')
 const cors = require('cors')
-const jwtAuth = require('micro-jwt-auth')
+const jwt = require('express-jwt')
 
 // handlers
 const handlers = require('./handlers')
@@ -21,6 +21,7 @@ if (!JWT_SECRET || !SVARUT_URL) {
 
 // Plugins
 router.use(cors())
+router.use(jwt({ secret: JWT_SECRET }).unless({ path: ['/'] }))
 
 // Map routes to handlers
 router.get('/', handlers.front)
@@ -33,6 +34,5 @@ router.post('/setForsendelseLestAvEksterntSystem', handlers.post)
 router.post('/retrieveSigneringsHistorikkForFlereForsendelser', handlers.post)
 router.get('/retrieveSigneringshistorikk/:id', handlers.get)
 
-module.exports = jwtAuth(JWT_SECRET, [ '/' ])((req, res) =>
-  router(req, res, finalhandler(req, res))
-)
+module.exports = (request, response) =>
+  router(request, response, finalhandler(request, response))

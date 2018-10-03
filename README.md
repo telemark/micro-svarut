@@ -131,7 +131,7 @@ data.json
 Deploy to Now
 
 ```sh
-now secret add svarut-url https://username:password@test.svarut.ks.no/tjenester/forsendelseservice/ForsendelsesServiceV9
+now secret add svarut-url https://username:password@test.svarut.ks.no/tjenester/forsendelseservice/ForsendelsesServiceV10
 now secret add jwt-secret "Louie Louie, oh no, I got to go Louie Louie, oh no, I got to go"
 now --npm -e NODE_ENV=production -e JWT_SECRET=@jwt-secret -e SVARUT_URL=@svarut-url telemark/micro-svarut
 ```
@@ -141,7 +141,7 @@ now --npm -e NODE_ENV=production -e JWT_SECRET=@jwt-secret -e SVARUT_URL=@svarut
 Set envs
 
 ```sh
-export SVARUT_URL=https://username:password@test.svarut.ks.no/tjenester/forsendelseservice/ForsendelsesServiceV9
+export SVARUT_URL=https://username:password@test.svarut.ks.no/tjenester/forsendelseservice/ForsendelsesServiceV10
 export JWT_SECRET="Louie Louie, oh no, I got to go Louie Louie, oh no, I got to go"
 ```
 
@@ -159,7 +159,7 @@ npm run dev
 Set envs
 
 ```sh
-export SVARUT_URL=https://username:password@test.svarut.ks.no/tjenester/forsendelseservice/ForsendelsesServiceV9
+export SVARUT_URL=https://username:password@test.svarut.ks.no/tjenester/forsendelseservice/ForsendelsesServiceV10
 export JWT_SECRET="Louie Louie, oh no, I got to go Louie Louie, oh no, I got to go"
 ```
 
