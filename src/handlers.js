@@ -33,8 +33,8 @@ exports.post = async (req, res) => {
 
 exports.get = async (req, res) => {
   const method = await getMethod(req)
-  const { id } = req.params
-  const query = method === 'retrieveSigneringshistorikk' ? { query: { forsendelseid: id } } : { query: { forsendelsesid: id } }
+  const { id: forsendelsesid } = req.params
+  const query = method === 'retrieveSigneringshistorikk' ? { query: { forsendelsesid } } : { query: { forsendelsesid } }
   const options = Object.assign(query, config)
 
   try {

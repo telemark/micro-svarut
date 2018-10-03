@@ -25,12 +25,12 @@ router.use(cors())
 // Map routes to handlers
 router.get('/', handlers.front)
 router.post('/sendForsendelse', handlers.post)
-router.get('/retrieveForsendelseHistorikk/:id', handlers.get)
-router.get('/retrieveForsendelseIdByEksternRef/:id', handlers.get)
-router.get('/retrieveForsendelseStatus/:id', handlers.get)
-router.post('/retrieveForsendelseStatuser', handlers.post)
+router.get('/retrieveForsendelsesHistorikk/:id', handlers.get)
+router.get('/retrieveForsendelsesIdByEksternRef/:id', handlers.get)
+router.get('/retrieveForsendelsesStatus/:id', handlers.get)
+router.post('/retrieveForsendelsesStatuser', handlers.post)
 router.post('/setForsendelseLestAvEksterntSystem', handlers.post)
-router.post('/retrieveSigneringshistorikkForFlereForsendelser', handlers.post)
+router.post('/retrieveSigneringsHistorikkForFlereForsendelser', handlers.post)
 router.get('/retrieveSigneringshistorikk/:id', handlers.get)
 
 module.exports = jwtAuth(JWT_SECRET, [ '/' ])((req, res) =>
