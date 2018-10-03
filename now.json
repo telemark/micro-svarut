@@ -1,15 +1,24 @@
 {
-  "name": "micro-svarut2",
+  "name": "micro-svarut3",
   "alias": [
-    "svarut2.service.t-fk.no"
+    "svarut3.service.t-fk.no"
   ],
-  "type": "npm",
+  "type": "docker",
   "env": {
     "NODE_ENV": "production",
     "JWT_SECRET": "@micro-svarut-jwt",
     "SVARUT_URL": "@micro-svarut-url-v10"
   },
+  "scale": {
+    "bru1": {
+      "min": 0,
+      "max": "auto"
+    }
+  },
   "engines": {
     "node": ">=10.0.0"
+  }
+  "features": {
+    "cloud": "v2"
   }
 }
