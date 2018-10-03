@@ -13,13 +13,18 @@ Look at this [WIKI](https://github.com/telemark/svarut/wiki) for field descripti
 | --- | --- | --- |
 | GET | / | This readme |
 | POST | /sendForsendelse | Sender inn forsendelse til ekspedering av KS-SvarUt |
-| GET | /retrieveForsendelseStatus | Henter status for en forsendelse |
-| POST | /retrieveForsendelseStatuser | Henter status for flere forsendelseer |
-| GET | /retrieveForsendelseHistorikk | Henter historikk for en forsendelse |
-| POST | /retrieveForsendelseIdByEksternRef | Henter liste med forsendelseider |
+| POST | /sendForsendelseMedId | Samme som sendForsendelse, men avsender setter forsendelsesid. Id må være av type UUID. Se sendForsendelse. |
+| GET | /startNyForsendelse | Genererer forsendelsesid som brukes sammen med sendForsendelseMedId |
+| GET | /retrieveForsendelsesStatus | Henter status for en forsendelse |
+| POST | /retrieveForsendelsesStatuser | Henter status for flere forsendelseer |
+| GET | /retrieveForsendelsesHistorikk | Henter historikk for en forsendelse |
+| POST | /retrieveForsendelsesIderByEksternRef | Henter liste med forsendelseider |
 | POST | /setForsendelseLestAvEksterntSystem | Sette status til lest når dokumentet har blitt lest |
-| POST | /retrieveSigneringshistorikkForFlereForsendelser | Henter historikk for flere signeringsoppdrag |
-| GET | /retrieveSigneringshistorikk | Henter historikk for ett signeringsoppdrag |
+| GET | /retreiveForsendelsesTyper | Henter alle forsendelsestyper som kan brukes i SvarInn |
+| GET | /retrieveMottakerSystemForOrgnr | Henter alle konfigurerte mottakersystem for orgnr |
+| POST | /retrieveSigneringsHistorikkForFlereForsendelser | Henter historikk for flere signeringsoppdrag |
+| GET | /retrieveSigneringsHistorikk | Henter historikk for ett signeringsoppdrag |
+| GET | /retrieveDokumentMetadata | Henter liste med informasjon om dokumentene til en forsendelse |
 
 # Examples
 
@@ -176,4 +181,3 @@ docker run -d \
 ## License
 
 [MIT](LICENSE)
-
