@@ -1,6 +1,6 @@
 {
   "name": "micro-svarut",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "description": "svarut microservice",
   "main": "src/index.js",
   "files": [
