@@ -1,4 +1,3 @@
-# Setting the base to nodejs 8.9.4
 FROM mhart/alpine-node:10 as base
 
 WORKDIR /usr/src
