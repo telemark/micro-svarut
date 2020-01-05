@@ -12,7 +12,7 @@
     "test-offline": "standard && ava",
     "coverage": "nyc ava",
     "coveralls": "nyc ava && nyc report --reporter=lcov && cat coverage/lcov.info | coveralls",
-    "dev": "micro-dev -H localhost",
+    "dev": "now dev",
     "start": "micro",
     "deploy": "npm test && now && now alias",
     "refresh": "rm -rf node_modules && rm package-lock.json && npm install",

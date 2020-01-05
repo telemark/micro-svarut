@@ -1,22 +1,40 @@
 {
-  "version": 1,
-  "name": "micro-svarut3",
+  "version": 2,
+  "name": "micro-svarut",
+  "scope": "telemark",
   "alias": [
-    "svarut3.service.t-fk.no"
+    "svarut10.service.t-fk.no"
   ],
-  "type": "docker",
   "env": {
     "NODE_ENV": "production",
     "JWT_SECRET": "@micro-svarut-jwt",
     "SVARUT_URL": "@micro-svarut-url-v10"
   },
-  "scale": {
-    "bru1": {
-      "min": 0,
-      "max": "auto"
+  "builds": [
+    {
+      "src": "/src/index.js",
+      "use": "@now/node"
+    },
+    {
+      "src": "/*.md",
+      "use": "@now/md"
     }
-  },
-  "features": {
-    "cloud": "v2"
-  }
+  ],
+  "routes": [
+    {
+      "src": "/",
+      "dest": "/README.html"
+    },
+    {
+      "src": "/docs",
+      "dest": "/README.html"
+    },
+    { "src": "/favicon.ico",
+      "dest": "/static/favicon.ico"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/src/index.js"
+    }
+  ]
 }
