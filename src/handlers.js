@@ -1,6 +1,3 @@
-const { promisify } = require('util')
-const readFileAsync = promisify(require('fs').readFile)
-const md = require('markdown-it')()
 const svarUt = require('svarut')
 const { send, json } = require('micro')
 const log = require('./log')
@@ -8,13 +5,6 @@ const config = { config: { url: process.env.SVARUT_URL } }
 
 async function getMethod (request) {
   return request.url.split('/')[1]
-}
-
-exports.front = async (request, response) => {
-  const readme = await readFileAsync('./README.md', 'utf-8')
-  const html = md.render(readme)
-  log('info', 'GET /')
-  send(response, 200, html)
 }
 
 exports.post = async (request, response) => {

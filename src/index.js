@@ -24,7 +24,6 @@ router.use(cors())
 router.use(jwt({ secret: JWT_SECRET }).unless({ path: ['/'] }))
 
 // Map routes to handlers
-router.get('/', handlers.front)
 router.post('/sendForsendelse', handlers.post)
 router.post('/sendForsendelseMedId/:id', handlers.post)
 router.get('/startNyForsendelse', handlers.get)
