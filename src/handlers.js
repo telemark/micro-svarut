@@ -1,5 +1,4 @@
 const svarUt = require('svarut')
-const { send, json } = require('micro')
 const log = require('./log')
 const config = { config: { url: process.env.SVARUT_URL } }
 
@@ -10,16 +9,17 @@ async function getMethod (request) {
 exports.post = async (request, response) => {
   const method = await getMethod(request)
   log('info', `POST /${method}`)
-  const data = { query: await json(request) }
+  const data = { query: await request.body }
   const options = Object.assign(data, config)
 
   try {
     const svarutData = await svarUt[method](options)
     log('info', `Got data:\n${svarutData}`)
-    send(response, 200, svarutData)
+    response.json(svarutData)
   } catch (error) {
     log('err', error.message)
-    send(response, error.statusCode || 500, error.message)
+    response.status(error.statusCode || 500)
+    response.send(error.message || error)
   }
 }
 
@@ -33,9 +33,9 @@ exports.get = async (request, response) => {
   try {
     const svarutData = await svarUt[method](options)
     log('info', `Got data:\n${svarutData}`)
-    send(response, 200, svarutData)
+    response.json(svarutData)
   } catch (error) {
-    log('err', error.message)
-    send(response, 500, error.message || error)
+    response.status(error.statusCode || 500)
+    response.send(error.message || error)
   }
 }
