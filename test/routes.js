@@ -1,5 +1,5 @@
-process.env['SVARUT_URL'] = 'https://username:password@test.svarut.ks.no/tjenester/forsendelseservice/ForsendelsesServiceV7'
-process.env['JWT_SECRET'] = 'abc123'
+process.env.SVARUT_URL = 'https://username:password@test.svarut.ks.no/tjenester/forsendelseservice/ForsendelsesServiceV7'
+process.env.JWT_SECRET = 'abc123'
 
 const test = require('ava')
 const listen = require('test-listen')
@@ -19,7 +19,7 @@ test('it returns README as frontpage', async t => {
 })
 
 test('it returns unauthorized', async t => {
-  axios.defaults.headers.common['Authorization'] = 'wrong'
+  axios.defaults.headers.common.Authorization = 'wrong'
   const url = await getUrl(srv)
   try {
     await axios.get(url + '/retrieveForsendelseStatuser')

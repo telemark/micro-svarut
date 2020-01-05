@@ -15,7 +15,8 @@
     "dev": "micro-dev -H localhost",
     "start": "micro",
     "deploy": "npm test && now && now alias",
-    "refresh": "rm -rf node_modules && rm package-lock.json && npm install"
+    "refresh": "rm -rf node_modules && rm package-lock.json && npm install",
+    "standard-fix": "standard --fix"
   },
   "engines": {
     "node": ">=10.18.0"
