@@ -17,7 +17,7 @@ exports.post = async (request, response) => {
     log('info', `Got data:\n${svarutData}`)
     response.json(svarutData)
   } catch (error) {
-    log('err', error.message)
+    log('error', `${error.message || error}`)
     response.status(error.statusCode || 500)
     response.send(error.message || error)
   }
@@ -25,7 +25,7 @@ exports.post = async (request, response) => {
 
 exports.get = async (request, response) => {
   const method = await getMethod(request)
-  log('info', `POST /${method}`)
+  log('info', `GET /${method}`)
   const { id: forsendelsesid } = request.params
   const query = { query: { forsendelsesid } }
   const options = Object.assign(query, config)
@@ -35,6 +35,7 @@ exports.get = async (request, response) => {
     log('info', `Got data:\n${svarutData}`)
     response.json(svarutData)
   } catch (error) {
+    log('error', `${error.message || error}`)
     response.status(error.statusCode || 500)
     response.send(error.message || error)
   }
